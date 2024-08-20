@@ -1,0 +1,30 @@
+import { useEffect, useState } from 'react'
+import { useForecastWeatherFetch } from '../fetch/useForecastWeatherFetch'
+import dateFix from '@libs/datefix'
+
+const useForecastWeather = (city, lang) => {
+  const [formattedForecast, setFormattedForecast] = useState([])
+  const { forecastWeatherData, loading, error } = useForecastWeatherFetch(city, lang)
+
+  useEffect(() => {
+    if (!forecastWeatherData) return
+
+    const formatData = (forecastWeatherData) => {
+      const forecastWeather = forecastWeatherData.list.map(el => ({
+        date: dateFix({ dt: el.dt_txt.substring(0, 10), lang }),
+        hour: el.dt_txt.substring(11, 16),
+        icon: `${import.meta.env.VITE_ICONS_URL_BASE}${el.weather[0].icon}.png`,
+        description: el.weather[0].description,
+        temp: ` ${Math.round(el.main.temp)}º`
+      }))
+
+      setFormattedForecast(forecastWeather)
+    }
+
+    formatData(forecastWeatherData)
+  }, [forecastWeatherData, city, lang])
+
+  return { formattedForecast, loading, error }
+}
+
+export { useForecastWeather }
