@@ -1,5 +1,6 @@
 type City = {
   name: {
+    [key: string]: string
     en: string,
     es: string,
   }

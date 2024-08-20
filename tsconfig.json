@@ -9,8 +9,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    // "baseUrl": "./",
+    // "paths": {
+    //   "@components/": ["./src/components/*"],
+    //   "@libs/": ["./src/libs/*"],
+    //   "@hooks/": ["./src/hooks/*"],
+    //   "@context/": ["./src/context/*"]
+    // }
   },
-  "include": ["src", ".eslintrc.cjs"],
+  "include": ["src", ".eslintrc.cjs", "env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
