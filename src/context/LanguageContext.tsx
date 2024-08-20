@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+  createContext, ReactNode, useContext, useMemo, useState,
+} from 'react';
 
 interface LanguageContextType {
   lang: string;
@@ -7,11 +9,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-interface LanguageProviderProps {
-  children: ReactNode;
-}
-
-export function LanguageProvider({ children }: LanguageProviderProps) {
+export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState('en');
   const value = useMemo(() => ({ lang, setLang }), [lang, setLang]);
 

@@ -1,3 +1,5 @@
+import { ObjectEnEs } from '../types/objects';
+
 interface ContentStrings {
   feel: string,
   wind: string,
@@ -33,12 +35,7 @@ export const detailsSVG: ContentStrings = {
   humidity: 'https://www.svgrepo.com/show/521708/humidity.svg',
 };
 
-type ForecastTitle = {
-  en: string,
-  es: string,
-};
-
-export const forecastTitle: ForecastTitle = {
+export const forecastTitle: ObjectEnEs = {
   en: 'Forecast Weather',
   es: 'Pronóstico',
 };

@@ -35,15 +35,21 @@
   margin: 0 20px 5px 20px;
   padding: 0;
 
-  li {
-    margin: 10px;
+  button {
+    border-radius: none;
+    border: none;
+    padding: none;
     font-size: 1.5em;
-    text-align: start;
+    font-weight: normal;
+    font-family: inherit;
     cursor: pointer;
+    transition: none;
+    margin: 10px;
+    text-align: start;
+  }
 
-    &:hover {
-      color: var(--enfasis-text-color-dark);
-    }
+  &:hover {
+    color: var(--enfasis-text-color-dark);
   }
 
 }
@@ -264,7 +270,7 @@
   #weatherDescription,
   #weatherDetails li span,
   #forecastList li div span,
-  #cities li:hover,
+  #cities a:hover,
   #contactForm summary:hover {
     color: var(--enfasis-text-color-light);
   }

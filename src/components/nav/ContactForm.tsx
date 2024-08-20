@@ -1,11 +1,11 @@
-import { LegacyRef, useRef } from 'react';
+import { useRef } from 'react';
 import { useFormState } from '../../hooks/contactForm/useFormState';
 import { useFormSend } from '../../hooks/contactForm/useFormSend';
 import { formLabels, placeholders } from '../../libs/formText';
 import { useLanguage } from '../../context/LanguageContext';
 import { useButtonTitle } from '../../hooks/contactForm/useButtonTitle';
 
-interface ContactFormType {detailsRef: LegacyRef<HTMLDetailsElement>}
+interface ContactFormType {detailsRef: React.RefObject<HTMLDetailsElement>}
 
 export default function ContactForm({ detailsRef }:ContactFormType) {
   const { lang } = useLanguage();

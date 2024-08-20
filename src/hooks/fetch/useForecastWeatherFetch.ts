@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
 import { FetchParams } from './fetchTypes';
 
-const useActualWeatherFetch = ({ city, lang }: FetchParams) => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [loading, setLoading] = useState<boolean>(true);
+const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {
+  const [forecastWeatherData, setForecastWeatherData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
 
-    const fetchWeather = async () => {
-      const urlForFetch = `${import.meta.env.VITE_URL_BASE}weather?q=${city}&lang=${lang}&units=metric&appid=${import.meta.env.VITE_API_KEY}`;
+    const fetchForecastWeather = async () => {
+      const urlForFetch = `${import.meta.env.VITE_URL_BASE}forecast?q=${city}&lang=${lang}&units=metric&appid=${import.meta.env.VITE_API_KEY}`;
       try {
         setLoading(true);
         const res = await fetch(urlForFetch);
-        if (!res.ok) throw new Error('Failed to fetch actual weather data');
+        if (!res.ok) throw new Error('Failed to fetch forecast weather data');
         const data = await res.json();
         if (isMounted) {
-          setWeatherData(data);
+          setForecastWeatherData(data);
           setError(null);
         }
       } catch (err) {
@@ -27,21 +27,21 @@ const useActualWeatherFetch = ({ city, lang }: FetchParams) => {
           } else {
             setError('An unknown error occurred');
           }
-          setWeatherData(null);
+          setForecastWeatherData(null);
         }
       } finally {
         if (isMounted) setLoading(false);
       }
     };
 
-    fetchWeather();
+    fetchForecastWeather();
 
     return () => {
       isMounted = false;
     };
   }, [city, lang]);
 
-  return { weatherData, loading, error };
+  return { forecastWeatherData, loading, error };
 };
 
-export { useActualWeatherFetch };
+export { useForecastWeatherFetch };
