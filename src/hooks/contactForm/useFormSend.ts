@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { FormSendParams } from './contactFormTypes';
+import { FormSendParams } from '../../types/contactForm';
 import { handleFormSend } from '../../libs/contactFormUtils';
 
 export const useFormSend = ({ emailRef, formData, lang }: FormSendParams) => {

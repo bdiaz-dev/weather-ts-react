@@ -4,9 +4,9 @@ import {
 
 export function useMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef: RefObject<HTMLElement | undefined> = useRef();
-  const buttonRef: RefObject<HTMLButtonElement | undefined> = useRef();
-  const detailsRef: RefObject<HTMLDetailsElement | undefined> = useRef();
+  const menuRef: RefObject<HTMLElement> = useRef();
+  const buttonRef: React.RefObject<HTMLButtonElement> = useRef();
+  const detailsRef: RefObject<HTMLDetailsElement> = useRef();
 
   const handleOpenMenu = () => {
     if (menuRef.current) { menuRef.current.classList.toggle('openMenu'); }

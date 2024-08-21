@@ -7,3 +7,7 @@ interface UseStateLangContext {
   lang: UseStateCityContext.lang,
   setLang: UseStateCityContext.setCity,
 }
+
+interface VoidFunction {
+  (data: void): void;
+}

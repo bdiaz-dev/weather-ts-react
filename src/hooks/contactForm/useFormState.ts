@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { FormData } from './contactFormTypes';
 
 export const useFormState = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const initialFormData: InitialFormData = {
     name: '',
     birthdate: '',
     city: '',
     email: '',
     phone: '',
-  });
+  };
+  const [formData, setFormData] = useState<InitialFormData>(initialFormData);
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
 

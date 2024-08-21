@@ -1,5 +1,5 @@
 import { validateForm } from './validateForm';
-import { FormSendParams } from '../hooks/contactForm/contactFormTypes';
+import { FormSendParams } from '../types/contactForm';
 import { getConfirmation, getThanks } from './formText';
 
 export const handleFormSend = (e: Event, { emailRef, formData, lang }: FormSendParams) => {

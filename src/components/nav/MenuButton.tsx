@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { ObjectEnEs } from '../../types/objects';
-import { VoidFunction } from '../../types/callbacks';
 
 interface MenuButtonParams {
   openMenu: VoidFunction,

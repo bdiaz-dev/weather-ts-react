@@ -1,4 +1,4 @@
-import { FormData } from '../hooks/contactForm/contactFormTypes';
+import { FormData } from '../types/contactForm';
 
 interface LanguageStrings {
   [key: string]: string | undefined;
