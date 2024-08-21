@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import windDirection from '@libs/windDirection';
 import { useActualWeatherFetch } from '../fetch/useActualWeatherFetch';
 import { FetchParams } from '../fetch/fetchTypes';
+import { ActualWeatherFormat } from '../../types/dataFormat';
+import windDirection from '../../libs/windDirection';
 
 const useActualWeather = ({ city, lang }: FetchParams) => {
   const { weatherData, error, loading } = useActualWeatherFetch({ city, lang });
-  const [formattedWeather, setFormattedWeather] = useState(null);
+  const [formattedWeather, setFormattedWeather] = useState<ActualWeatherFormat | null>(null);
 
   useEffect(() => {
     if (!weatherData) return;

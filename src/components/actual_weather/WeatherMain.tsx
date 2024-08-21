@@ -1,9 +1,12 @@
-import useNoOpacity from '@hooks/faderAnimation/useNoOpacity';
-import { useCity } from '@context/CityContext';
-import { setCityName } from '@libs/cities';
-import { useLanguage } from '@context/LanguageContext';
+import { useCity } from '../../context/CityContext';
+import { useLanguage } from '../../context/LanguageContext';
+import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
+import { setCityName } from '../../libs/cities';
+import { ActualWeatherFormatMain } from '../../types/dataFormat';
 
-export default function WeatherMain({ weatherData }) {
+type WeatherMainParams = ActualWeatherFormatMain;
+
+export default function WeatherMain({ weatherData }: WeatherMainParams) {
   const { lang } = useLanguage();
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });

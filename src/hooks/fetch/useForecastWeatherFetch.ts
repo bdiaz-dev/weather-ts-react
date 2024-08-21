@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FetchParams } from './fetchTypes';
+import { ForecastDataFetch } from '../../types/dataFetch';
 
 const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {
-  const [forecastWeatherData, setForecastWeatherData] = useState(null);
+  const [forecastWeatherData, setForecastWeatherData] = useState<ForecastDataFetch | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

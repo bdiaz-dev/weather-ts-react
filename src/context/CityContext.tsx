@@ -11,7 +11,7 @@ const CityContext = createContext<CityContextType | undefined>(undefined);
 
 export function CityProvider({ children }: { children: ReactNode }) {
   const [city, setCity] = useState('Lisbon');
-  const value = useMemo(() => ({ city, setCity }), [city, setCity]);
+  const value = useMemo(() => ({ city, setCity }), [city]);
 
   return (
     <CityContext.Provider value={value}>
@@ -21,5 +21,9 @@ export function CityProvider({ children }: { children: ReactNode }) {
 }
 
 export function useCity() {
-  return useContext(CityContext);
+  const context = useContext(CityContext);
+  if (context === undefined) {
+    throw new Error('useCity must be used within a CityProvider');
+  }
+  return context;
 }
