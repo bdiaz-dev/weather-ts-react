@@ -12,14 +12,14 @@ export default function Cities({ closeMenu }: CitiesParams) {
   return (
     <ul id="cities">
       {
-        cities.map((city) => (
+        cities.map((ct) => (
           <button
-            key={city.name.en}
+            key={ct.name.en}
             type="button"
-            onClick={() => { handleClick({ city: city.name.en, closeMenu, setCity }); }}
-            className={isActive(city.name.en, selectedCity)}
+            onClick={() => { handleClick({ city: ct.name.en, closeMenu, setCity }); }}
+            className={isActive(ct.name.en, selectedCity)}
           >
-            {city.name[lang]}
+            {ct.name[lang]}
           </button>
         ))
       }

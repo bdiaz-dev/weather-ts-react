@@ -2,12 +2,7 @@ import {
   createContext, ReactNode, useContext, useMemo, useState,
 } from 'react';
 
-interface CityContextType {
-  city: string;
-  setCity: (city: string) => void;
-}
-
-const CityContext = createContext<CityContextType | undefined>(undefined);
+const CityContext = createContext<UseStateCityContext | undefined>(undefined);
 
 export function CityProvider({ children }: { children: ReactNode }) {
   const [city, setCity] = useState('Lisbon');

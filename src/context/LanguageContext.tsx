@@ -2,16 +2,11 @@ import {
   createContext, ReactNode, useContext, useMemo, useState,
 } from 'react';
 
-interface LanguageContextType {
-  lang: string;
-  setLang: (lang: string) => void;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<UseStateLangContext | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState('en');
-  const value = useMemo(() => ({ lang, setLang }), [lang, setLang]);
+  const value = useMemo(() => ({ lang, setLang }), [lang]);
 
   return (
     <LanguageContext.Provider value={value}>

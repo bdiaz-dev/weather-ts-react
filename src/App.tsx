@@ -14,15 +14,15 @@ import MenuLayout from './components/nav/MenuLayout';
 function App() {
   const { lang } = useLanguage();
   const { city } = useCity();
-  
+
   const {
     formattedWeather: weatherData,
     error: weatherError,
-  } = useActualWeather(city, lang);
+  } = useActualWeather({ city, lang });
   const {
     formattedForecast: forecastData,
     error: forecastError,
-  } = useForecastWeather(city, lang);
+  } = useForecastWeather({ city, lang });
 
   return (
     <>
