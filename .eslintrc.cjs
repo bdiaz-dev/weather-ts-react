@@ -29,7 +29,7 @@ module.exports = {
     'jsx-a11y',
   ],
   rules: {
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': 'off', // ['error', 'unix'],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
