@@ -1,5 +1,3 @@
-import { VoidFunction } from '../types/callbacks';
-
 export const isActive = (ct: string, selectedCity: string) => ((selectedCity === ct) ? 'cityActive' : '');
 
 interface HandleClickParams {

@@ -11,7 +11,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
   const { lang } = useLanguage();
   const { formData, buttonDisabled, handleInputChange } = useFormState();
   const sendTitle = useButtonTitle(lang, buttonDisabled);
-  const emailRef = useRef<HTMLInputElement>();
+  const emailRef = useRef<HTMLInputElement | null>(null);
   const handleSend = useFormSend({ emailRef, formData, lang });
 
   return (

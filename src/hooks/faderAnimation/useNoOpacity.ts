@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-const useNoOpacity = (dependency: string, timeout: number = 1000) => {
-  const elementRef = useRef();
+const useNoOpacity = <T extends HTMLElement> (dependency: string, timeout: number = 1000) => {
+  const elementRef = useRef<T | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;

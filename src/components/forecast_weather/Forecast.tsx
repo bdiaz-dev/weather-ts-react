@@ -13,11 +13,11 @@ export default function Forecast({ forecastData }: ForecastParams) {
   const { lang } = useLanguage();
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });
-  const mainRef = useNoOpacity(cityInLang, 2000);
+  const mainRef = useNoOpacity<HTMLDivElement>(cityInLang, 2000);
   return (
     <div id="forecastContainer" ref={mainRef}>
       <h3>{forecastTitle[lang]}</h3>
-      <ul id="forecastList" ref={mainRef}>
+      <ul id="forecastList">
         {forecastData.map((item, i) => (
           <li key={`${item.date} ${item.hour}`}>
             <div>

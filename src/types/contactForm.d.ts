@@ -8,11 +8,23 @@ interface InitialFormData {
 
 interface FormSendParams {
   emailRef: React.RefObject<HTMLInputElement>,
-  formData: FormData,
+  formData: InitialFormData,
   lang: string,
 }
 
 interface UseFormDataParams {
-  formData: FormData,
+  formData: InitialFormData,
   setFormData: React.Dispatch<React.SetStateAction<FormData>>,
+}
+
+interface TitlesStrings {
+  [key: string]: string
+  disabled: string,
+  enabled: string,
+}
+
+interface TitlesMap {
+  [key: string]: TitlesStrings
+  en: TitlesStrings,
+  es: TitlesStrings,
 }

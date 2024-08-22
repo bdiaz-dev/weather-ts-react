@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { FetchParams } from './fetchTypes';
 import { ActualDataFetch } from '../../types/dataFetch';
 
 const useActualWeatherFetch = ({ city, lang }: FetchParams) => {

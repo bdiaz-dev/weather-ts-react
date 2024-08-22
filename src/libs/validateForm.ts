@@ -4,17 +4,6 @@ interface ValidateParams {
   lang: string,
 }
 
-interface MessagesStrings {
-  emailError: string,
-  phoneError: string,
-}
-
-interface MessagesMap {
-  [key: string]: MessagesStrings
-  en: MessagesStrings,
-  es: MessagesStrings,
-}
-
 export const validateForm = ({ emailRef, phone, lang }: ValidateParams) => {
   const { alert } = window;
   const messages: MessagesMap = {

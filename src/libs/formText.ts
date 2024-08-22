@@ -1,24 +1,3 @@
-import { FormData } from '../types/contactForm';
-
-interface LanguageStrings {
-  [key: string]: string | undefined;
-  title?: string;
-  name?: string;
-  born?: string;
-  live?: string;
-  email?: string;
-  phone?: string;
-  button?: string;
-  question?: string;
-  thanks?: string;
-}
-
-interface LanguageMap {
-  [key: string]: LanguageStrings;
-  en: LanguageStrings;
-  es: LanguageStrings;
-}
-
 const text: LanguageMap = {
   en: {
     question: 'Is this your right data?',
@@ -40,7 +19,7 @@ const text: LanguageMap = {
   },
 };
 
-export const getConfirmation = (lang: string, formData: FormData) => {
+export const getConfirmation = (lang: string, formData: InitialFormData) => {
   const message = `${text[lang].question}
       ${text[lang].name}: ${formData.name}
       ${text[lang].born}: ${formData.birthdate}

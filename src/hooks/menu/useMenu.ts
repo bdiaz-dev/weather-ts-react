@@ -1,12 +1,12 @@
 import {
-  useState, useEffect, useRef, RefObject,
+  useState, useEffect, useRef,
 } from 'react';
 
 export function useMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef: RefObject<HTMLElement> = useRef();
-  const buttonRef: React.RefObject<HTMLButtonElement> = useRef();
-  const detailsRef: RefObject<HTMLDetailsElement> = useRef();
+  const menuRef = useRef<HTMLElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const detailsRef = useRef<HTMLDetailsElement | null>(null);
 
   const handleOpenMenu = () => {
     if (menuRef.current) { menuRef.current.classList.toggle('openMenu'); }

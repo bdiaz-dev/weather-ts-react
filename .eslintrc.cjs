@@ -39,6 +39,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
   },
+  ignorePatterns: ['vite.config.js'],
   settings: {
     react: {
       version: 'detect',

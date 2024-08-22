@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { FetchParams } from './fetchTypes';
 import { ForecastDataFetch } from '../../types/dataFetch';
 
 const useForecastWeatherFetch = ({ city, lang }: FetchParams) => {

@@ -1,19 +1,4 @@
-import { ObjectEnEs } from '../types/objects';
-
-interface ContentStrings {
-  feel: string,
-  wind: string,
-  maxMin: string,
-  humidity: string,
-}
-
-interface TextMap {
-  [key: string]: ContentStrings
-  en: ContentStrings,
-  es: ContentStrings
-}
-
-export const text: TextMap = {
+export const text: ContentTextMap = {
   en: {
     feel: 'Feels Like',
     wind: 'Wind',

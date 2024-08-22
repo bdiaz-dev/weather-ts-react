@@ -1,17 +1,5 @@
 import { useEffect, useState } from 'react';
 
-interface TitlesStrings {
-  [key: string]: string
-  disabled: string,
-  enabled: string,
-}
-
-interface TitlesMap {
-  [key: string]: TitlesStrings
-  en: TitlesStrings,
-  es: TitlesStrings,
-}
-
 export const useButtonTitle = (lang: string, buttonDisabled: boolean) => {
   const [sendTitle, setSendTitle] = useState<string>('');
 

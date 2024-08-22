@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useActualWeatherFetch } from '../fetch/useActualWeatherFetch';
-import { FetchParams } from '../fetch/fetchTypes';
 import { ActualWeatherFormat } from '../../types/dataFormat';
 import windDirection from '../../libs/windDirection';
 

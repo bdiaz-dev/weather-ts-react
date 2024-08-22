@@ -1,6 +1,5 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { handleClick, isActive } from '../../libs/handleCities';
-import { VoidFunction } from '../../types/callbacks';
 import { useCity } from '../../context/CityContext';
 import { cities } from '../../libs/cities';
 

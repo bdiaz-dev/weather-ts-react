@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useForecastWeatherFetch } from '../fetch/useForecastWeatherFetch';
-import { FetchParams } from '../fetch/fetchTypes';
 import { ForecastWeatherFormat } from '../../types/dataFormat';
 import { ForecastDataFetchList } from '../../types/dataFetch';
 import dateFix from '../../libs/datefix';

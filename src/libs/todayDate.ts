@@ -1,5 +1,3 @@
-import { StringListEnEs } from '../types/objects';
-
 export default function todayDate(lang: string) {
   const todayDateInstance = new Date();
   const months: StringListEnEs = {

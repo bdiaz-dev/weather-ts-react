@@ -3,13 +3,13 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { CityProvider, useCity } from './context/CityContext';
 import { useActualWeather } from './hooks/data/useActualWeather';
 import { useForecastWeather } from './hooks/data/useForecastWeather';
-import todayDate from './libs/todayDate';
 import WeatherMain from './components/actual_weather/WeatherMain';
 import WeatherDetails from './components/actual_weather/WeatherDetails';
 import Forecast from './components/forecast_weather/Forecast';
 import PageHead from './components/helmet/PageHead';
 import ErrorAlert from './components/error/ErrorAlert';
 import MenuLayout from './components/nav/MenuLayout';
+import todayDate from './libs/todayDate';
 
 function App() {
   const { lang } = useLanguage();
