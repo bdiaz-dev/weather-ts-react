@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { useFormState } from '../../hooks/contactForm/useFormState';
-import { useFormSend } from '../../hooks/contactForm/useFormSend';
 import { formLabels, placeholders } from '../../libs/formText';
 import { useLanguage } from '../../context/LanguageContext';
 import { useButtonTitle } from '../../hooks/contactForm/useButtonTitle';
+import { handleFormSend } from '../../libs/contactFormUtils';
 
 interface ContactFormType {detailsRef: React.RefObject<HTMLDetailsElement>}
 
@@ -12,12 +12,11 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
   const { formData, buttonDisabled, handleInputChange } = useFormState();
   const sendTitle = useButtonTitle(lang, buttonDisabled);
   const emailRef = useRef<HTMLInputElement | null>(null);
-  const handleSend = useFormSend({ emailRef, formData, lang });
 
   return (
     <details ref={detailsRef} id="contactForm">
       <summary>{formLabels[lang].title}</summary>
-      <form onSubmit={() => handleSend}>
+      <form onSubmit={(e) => handleFormSend(e, { emailRef, formData, lang })}>
         <label htmlFor="nameInput">{formLabels[lang].name}</label>
         <input
           id="nameInput"

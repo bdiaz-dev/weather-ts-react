@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { ObjectEnEs } from '../../types/objects';
 
 interface MenuButtonParams {
   openMenu: VoidFunction,
@@ -19,7 +18,7 @@ export default function MenuButton({ openMenu, buttonRef }: MenuButtonParams) {
       type="button"
       aria-label={ariaLabel[lang]}
       ref={buttonRef}
-      onClick={() => openMenu}
+      onClick={openMenu}
     >
       <span />
       <span />

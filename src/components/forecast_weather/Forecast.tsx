@@ -5,9 +5,9 @@ import { setCityName } from '../../libs/cities';
 import { forecastTitle } from '../../libs/content';
 import { ForecastWeatherFormat } from '../../types/dataFormat';
 
-type ForecastParams = {
+interface ForecastParams {
   forecastData: ForecastWeatherFormat
-};
+}
 
 export default function Forecast({ forecastData }: ForecastParams) {
   const { lang } = useLanguage();

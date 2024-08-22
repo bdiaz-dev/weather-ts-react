@@ -1,7 +1,8 @@
+import { FormEvent } from 'react';
 import { validateForm } from './validateForm';
 import { getConfirmation, getThanks } from './formText';
 
-export const handleFormSend = (e: Event, { emailRef, formData, lang }: FormSendParams) => {
+export const handleFormSend = (e: FormEvent, { emailRef, formData, lang }: FormSendParams) => {
   const { alert, confirm } = window;
 
   if (!validateForm({ emailRef, phone: formData.phone, lang })) {

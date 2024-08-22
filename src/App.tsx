@@ -6,10 +6,10 @@ import { useForecastWeather } from './hooks/data/useForecastWeather';
 import WeatherMain from './components/actual_weather/WeatherMain';
 import WeatherDetails from './components/actual_weather/WeatherDetails';
 import Forecast from './components/forecast_weather/Forecast';
-import PageHead from './components/helmet/PageHead';
 import ErrorAlert from './components/error/ErrorAlert';
 import MenuLayout from './components/nav/MenuLayout';
 import todayDate from './libs/todayDate';
+import PageHead from './components/helmet/PageHead';
 
 function App() {
   const { lang } = useLanguage();
@@ -31,7 +31,7 @@ function App() {
         weatherData?.main
           && (
           <PageHead
-            title={`${weatherData.main.description} ${Math.round(weatherData.main.temp)}`}
+            title={`${weatherData.main.description} ${weatherData.main.temp}`}
             favicon={weatherData.main.icon}
           />
           )

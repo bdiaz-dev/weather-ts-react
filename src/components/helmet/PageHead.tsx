@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-type PageHeadParams = {
+interface PageHeadParams {
   title: string,
   favicon: string,
-};
+}
 
 export default function PageHead({ title, favicon }: PageHeadParams) {
   useEffect(() => {

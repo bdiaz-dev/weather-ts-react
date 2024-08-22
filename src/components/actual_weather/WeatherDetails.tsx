@@ -5,7 +5,7 @@ import { useCity } from '../../context/CityContext';
 import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
 import { ActualWeatherFormatDetails } from '../../types/dataFormat';
 
-type WeatherDetailsParams = ActualWeatherFormatDetails;
+interface WeatherDetailsParams {weatherDetails: ActualWeatherFormatDetails}
 
 export default function WeatherDetails({ weatherDetails }: WeatherDetailsParams) {
   const { lang } = useLanguage();

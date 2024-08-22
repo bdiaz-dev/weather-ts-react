@@ -4,7 +4,7 @@ import useNoOpacity from '../../hooks/faderAnimation/useNoOpacity';
 import { setCityName } from '../../libs/cities';
 import { ActualWeatherFormatMain } from '../../types/dataFormat';
 
-type WeatherMainParams = ActualWeatherFormatMain;
+interface WeatherMainParams {weatherData: ActualWeatherFormatMain}
 
 export default function WeatherMain({ weatherData }: WeatherMainParams) {
   const { lang } = useLanguage();
@@ -17,7 +17,7 @@ export default function WeatherMain({ weatherData }: WeatherMainParams) {
       <h2>{`${cityInLang} ${weatherData.country}`}</h2>
       <img src={weatherData.icon} alt="weather icon" />
       <p id="weatherDescription">
-        {`${weatherData.description} ${weatherData.temp}º`}
+        {`${weatherData.description} ${weatherData.temp}`}
       </p>
     </div>
 

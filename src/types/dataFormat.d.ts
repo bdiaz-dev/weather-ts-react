@@ -3,7 +3,7 @@ interface ActualWeatherFormatMain {
   country: string,
   icon: string
   description: string,
-  temp: number,
+  temp: string,
 }
 
 interface ActualWeatherFormatDetails {
