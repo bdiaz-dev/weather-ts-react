@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { CityProvider, useCity } from './context/CityContext';
 import { useActualWeather } from './hooks/data/useActualWeather';
@@ -10,14 +11,17 @@ import ErrorAlert from './components/error/ErrorAlert';
 import MenuLayout from './components/nav/MenuLayout';
 import todayDate from './libs/todayDate';
 import PageHead from './components/helmet/PageHead';
+import LoadingMessage from './components/loading/LoadingMessage';
 
 function App() {
   const { lang } = useLanguage();
   const { city } = useCity();
+  const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
 
   const {
     formattedWeather: weatherData,
     error: weatherError,
+    loading: weatherLoading,
   } = useActualWeather({ city, lang });
   const {
     formattedForecast: forecastData,
@@ -29,33 +33,45 @@ function App() {
       {/* DYNAMIC TITLE AND FAVICON */}
       {
         weatherData?.main
-          && (
+        && (
           <PageHead
             title={`${weatherData.main.description} ${weatherData.main.temp}`}
             favicon={weatherData.main.icon}
           />
-          )
+        )
       }
       <main>
         {/* MENU WITH CITIES AND LANG BUTTONS */}
         <MenuLayout />
 
         <article>
-          <h1>Weather App</h1>
-          <h2>{todayDate(lang)}</h2>
+          {
+            !weatherData?.main && isFirstLoad
+            && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
+          }
+          {
+            weatherData?.main && <h1>Weather App</h1>
+          }
+          {
+            weatherData?.main && <h2>{todayDate(lang)}</h2>
+          }
+          {
+            weatherLoading && isFirstLoad && !weatherData
+            && <LoadingMessage setIsFirstLoad={setIsFirstLoad} />
+          }
 
           {/* ACTUAL WEATHER - & ERROR */}
           {
             weatherError
-              && (
+            && (
               <ErrorAlert>
                 {weatherError}
               </ErrorAlert>
-              )
+            )
           }
           {
-            weatherData?.main && !weatherError
-              && (
+            weatherData?.main && !weatherError // && !weatherLoading
+            && (
               <section>
                 <WeatherMain
                   weatherData={weatherData.main}
@@ -64,27 +80,28 @@ function App() {
                   weatherDetails={weatherData.details}
                 />
               </section>
-              )
+            )
           }
 
           {/* FORECAST WEATHER - & ERROR */}
           {
             forecastError
-              && (
+            && (
               <ErrorAlert>
                 {forecastError}
               </ErrorAlert>
-              )
+            )
           }
+
           {
-            forecastData && !forecastError
-              && (
+            forecastData && !forecastError // && !forecastLoading
+            && (
               <section>
                 <Forecast
                   forecastData={forecastData}
                 />
               </section>
-              )
+            )
           }
         </article>
       </main>

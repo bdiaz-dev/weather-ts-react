@@ -11,7 +11,9 @@ export default function WeatherDetails({ weatherDetails }: WeatherDetailsParams)
   const { lang } = useLanguage();
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });
-  const mainRef = useNoOpacity<HTMLUListElement>(cityInLang, 1500);
+  const mainRef = useNoOpacity<HTMLUListElement>({
+    data: weatherDetails, city: cityInLang, timeout: 1500,
+  });
 
   return (
     <ul id="weatherDetails" ref={mainRef}>

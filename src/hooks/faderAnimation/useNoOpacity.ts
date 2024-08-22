@@ -1,19 +1,24 @@
-import { useEffect, useRef } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useRef, useState } from 'react';
 
-const useNoOpacity = <T extends HTMLElement> (dependency: string, timeout: number = 1000) => {
+const useNoOpacity = <T extends HTMLElement>({ data, city, timeout }: NoOpacityParams) => {
   const elementRef = useRef<T | null>(null);
+  const [lastData, setLastData] = useState();
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return () => {};
+    if (!element) return () => { };
 
     element.classList.remove('noOpacity');
+    if (lastData === data) return () => { };
     const timer = setTimeout(() => {
       element.classList.add('noOpacity');
     }, timeout);
 
+    setLastData(data);
+
     return () => clearTimeout(timer);
-  }, [dependency, timeout]);
+  }, [city, data, timeout]);
 
   return elementRef;
 };

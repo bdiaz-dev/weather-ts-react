@@ -27,7 +27,7 @@ const useActualWeather = ({ city, lang }: FetchParams) => {
         humidity: `${Math.round(weatherData.main.humidity)}%`,
       };
 
-      const newFormatted = {
+      const newFormatted: ActualWeatherFormat = {
         main: actualWeatherMain,
         details: actualWeatherDetails,
       };

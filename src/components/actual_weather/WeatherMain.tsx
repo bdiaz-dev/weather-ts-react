@@ -10,7 +10,9 @@ export default function WeatherMain({ weatherData }: WeatherMainParams) {
   const { lang } = useLanguage();
   const { city } = useCity();
   const cityInLang = setCityName({ selectedCity: city, lang });
-  const mainRef = useNoOpacity<HTMLDivElement>(cityInLang);
+  const mainRef = useNoOpacity<HTMLDivElement>({
+    data: weatherData, city: cityInLang, timeout: 1000,
+  });
 
   return (
     <div id="weatherMain" ref={mainRef}>

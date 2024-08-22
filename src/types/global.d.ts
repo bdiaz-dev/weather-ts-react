@@ -76,3 +76,9 @@ interface MessagesMap {
   en: MessagesStrings,
   es: MessagesStrings,
 }
+
+interface NoOpacityParams {
+  data: ActualWeatherFormatMain | ActualWeatherFormatDetails | ForecastWeatherFormat,
+  city: string,
+  timeout: number
+}

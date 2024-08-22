@@ -30,10 +30,9 @@ const useActualWeatherFetch = ({ city, lang }: FetchParams) => {
           setWeatherData(null);
         }
       } finally {
-        if (isMounted) setLoading(false);
+        // if (isMounted) setLoading(false);
       }
     };
-
     fetchWeather();
 
     return () => {

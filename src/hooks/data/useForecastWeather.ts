@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+// dependency lang removed on useEffect, it cause's innecesary rerenders
+
 import { useEffect, useState } from 'react';
 import { useForecastWeatherFetch } from '../fetch/useForecastWeatherFetch';
 import { ForecastWeatherFormat } from '../../types/dataFormat';
@@ -22,9 +25,8 @@ const useForecastWeather = ({ city, lang }: FetchParams) => {
 
       setFormattedForecast(forecastWeather);
     };
-
     formatData();
-  }, [forecastWeatherData, city, lang]);
+  }, [forecastWeatherData]);
 
   return { formattedForecast, loading, error };
 };
