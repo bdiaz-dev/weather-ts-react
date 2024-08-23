@@ -10,7 +10,7 @@ const useNoOpacity = <T extends HTMLElement>({ data, city, timeout }: NoOpacityP
     if (!element) return () => { };
 
     element.classList.remove('noOpacity');
-    if (lastData === data) return () => { };
+    if (data === lastData) return () => { };
     const timer = setTimeout(() => {
       element.classList.add('noOpacity');
     }, timeout);

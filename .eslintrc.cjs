@@ -8,6 +8,7 @@ module.exports = {
       jsx: true,
     },
     project: './tsconfig.json',
+    parser: '@typescript-eslint/parser',
   },
   env: {
     browser: true,

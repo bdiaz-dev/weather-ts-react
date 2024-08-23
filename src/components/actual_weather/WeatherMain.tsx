@@ -17,7 +17,7 @@ export default function WeatherMain({ weatherData }: WeatherMainParams) {
   return (
     <div id="weatherMain" ref={mainRef}>
       <h2>{`${cityInLang} ${weatherData.country}`}</h2>
-      <img src={weatherData.icon} alt="weather icon" />
+      <img src={weatherData.icon} alt="main weather icon" />
       <p id="weatherDescription">
         {`${weatherData.description} ${weatherData.temp}`}
       </p>
