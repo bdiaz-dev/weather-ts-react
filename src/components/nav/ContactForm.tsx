@@ -5,9 +5,9 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useButtonTitle } from '../../hooks/contactForm/useButtonTitle';
 import { handleFormSend } from '../../libs/contactFormUtils';
 
-interface ContactFormType {detailsRef: React.RefObject<HTMLDetailsElement>}
+interface ContactFormType { detailsRef: React.RefObject<HTMLDetailsElement> }
 
-export default function ContactForm({ detailsRef }:ContactFormType) {
+export default function ContactForm({ detailsRef }: ContactFormType) {
   const { lang } = useLanguage();
   const { formData, buttonDisabled, handleInputChange } = useFormState();
   const sendTitle = useButtonTitle(lang, buttonDisabled);
@@ -68,6 +68,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
         />
 
         <button
+          id="formSendButton"
           type="submit"
           disabled={buttonDisabled}
           style={{ borderColor: buttonDisabled ? '#1a1a1a' : 'white' }}

@@ -3,7 +3,7 @@ import { handleClick, isActive } from '../../libs/handleCities';
 import { useCity } from '../../context/CityContext';
 import { cities } from '../../libs/cities';
 
-interface CitiesParams { closeMenu: VoidFunction}
+interface CitiesParams { closeMenu: VoidFunction }
 export default function Cities({ closeMenu }: CitiesParams) {
   const { city: selectedCity, setCity } = useCity();
   const { lang } = useLanguage();
@@ -12,14 +12,17 @@ export default function Cities({ closeMenu }: CitiesParams) {
     <ul id="cities" data-testid="citiesList">
       {
         cities.map((ct) => (
-          <button
+          <li
             key={ct.name.en}
-            type="button"
-            onClick={() => { handleClick({ city: ct.name.en, closeMenu, setCity }); }}
-            className={isActive(ct.name.en, selectedCity)}
           >
-            {ct.name[lang]}
-          </button>
+            <button
+              type="button"
+              onClick={() => { handleClick({ city: ct.name.en, closeMenu, setCity }); }}
+              className={isActive(ct.name.en, selectedCity)}
+            >
+              {ct.name[lang]}
+            </button>
+          </li>
         ))
       }
     </ul>
