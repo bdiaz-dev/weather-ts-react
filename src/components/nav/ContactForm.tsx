@@ -14,12 +14,13 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
   const emailRef = useRef<HTMLInputElement | null>(null);
 
   return (
-    <details ref={detailsRef} id="contactForm">
+    <details ref={detailsRef} id="contactForm" data-testid="contactForm">
       <summary>{formLabels[lang].title}</summary>
       <form onSubmit={(e) => handleFormSend(e, { emailRef, formData, lang })}>
         <label htmlFor="nameInput">{formLabels[lang].name}</label>
         <input
           id="nameInput"
+          data-testid="nameInput"
           type="text"
           value={formData.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
@@ -29,6 +30,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
         <label htmlFor="dateInput">{formLabels[lang].born}</label>
         <input
           id="dateInput"
+          data-testid="dateInput"
           type="date"
           value={formData.birthdate}
           onChange={(e) => handleInputChange('birthdate', e.target.value)}
@@ -37,6 +39,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
         <label htmlFor="cityInput">{formLabels[lang].live}</label>
         <input
           id="cityInput"
+          data-testid="cityInput"
           type="text"
           value={formData.city}
           onChange={(e) => handleInputChange('city', e.target.value)}
@@ -46,6 +49,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
         <label htmlFor="emailInput">{formLabels[lang].email}</label>
         <input
           id="emailInput"
+          data-testid="emailInput"
           type="email"
           value={formData.email}
           onChange={(e) => handleInputChange('email', e.target.value)}
@@ -56,6 +60,7 @@ export default function ContactForm({ detailsRef }:ContactFormType) {
         <label htmlFor="phoneInput">{formLabels[lang].phone}</label>
         <input
           id="phoneInput"
+          data-testid="phoneInput"
           type="text"
           value={formData.phone}
           onChange={(e) => handleInputChange('phone', e.target.value)}

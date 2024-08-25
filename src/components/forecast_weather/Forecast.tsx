@@ -27,7 +27,7 @@ export default function Forecast({ forecastData }: ForecastParams) {
               <b>{item.hour}</b>
             </div>
             <div>
-              <img src={item.icon} alt="weather icon" />
+              <img src={item.icon} alt="forecast weather icon" />
               <span>{item.description}</span>
               <span>{item.temp}</span>
             </div>

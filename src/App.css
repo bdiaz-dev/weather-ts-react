@@ -34,24 +34,24 @@
   list-style: none;
   margin: 0 20px 5px 20px;
   padding: 0;
+  text-align: start;
 
   button {
-    border-radius: none;
-    border: none;
-    padding: none;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0;
     font-size: 1.5em;
     font-weight: normal;
     font-family: inherit;
     cursor: pointer;
     transition: none;
     margin: 10px;
-    text-align: start;
-  }
 
-  &:hover {
-    color: var(--enfasis-text-color-dark);
+    &:hover {
+      color: var(--enfasis-text-color-dark);
+    }
   }
-
 }
 
 #contactForm {
@@ -270,7 +270,7 @@
   #weatherDescription,
   #weatherDetails li span,
   #forecastList li div span,
-  #cities a:hover,
+  #cities button:hover,
   #contactForm summary:hover {
     color: var(--enfasis-text-color-light);
   }

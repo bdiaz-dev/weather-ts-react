@@ -9,7 +9,7 @@ export default function Cities({ closeMenu }: CitiesParams) {
   const { lang } = useLanguage();
 
   return (
-    <ul id="cities">
+    <ul id="cities" data-testid="citiesList">
       {
         cities.map((ct) => (
           <button
